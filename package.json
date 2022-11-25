@@ -1,0 +1,31 @@
+{
+  "name": "SdkPaymentModuleExample",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "pods": "pod-install --quiet"
+  },
+  "dependencies": {
+    "@lyracom/react-native-sdk-payment-module": "1.0.0",
+    "react": "18.1.0",
+    "react-native": "0.70.6"
+  },
+  "devDependencies": {
+    "@arkweid/lefthook": "^0.7.7",
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "commitlint": "^17.0.2",
+    "@commitlint/config-conventional": "^17.3.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "metro-react-native-babel-preset": "0.72.3",
+    "pod-install": "^0.1.0"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}
