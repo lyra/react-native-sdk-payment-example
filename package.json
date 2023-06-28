@@ -9,7 +9,7 @@
     "pods": "pod-install --quiet"
   },
   "dependencies": {
-    "@lyracom/react-native-sdk-payment-module": "1.0.0",
+    "@lyracom/react-native-sdk-payment-module": "1.0.5",
     "react": "18.1.0",
     "react-native": "0.70.6"
   },
