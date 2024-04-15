@@ -1,79 +1,75 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native SDK payment example
 
-# Getting Started
+## Summary
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+The aim of this repository is to explain how to integrate our Payment Mobile SDK into a React Native application.
 
-## Step 1: Start the Metro Server
+## Table of contents
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- [Payment Mobile SDK integration example](#react-native-sdk-payment-example)
+  - [Summary](#summary)
+  - [Table of contents](#table-of-contents)
+  - [Prerequisites](#prerequisites)
+  - [Getting started](#getting-started)
+    - [Execute this sample](#execute-this-sample)
+  - [Troubleshooting](#troubleshooting)
+  - [Copyright and license](#copyright-and-license)
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Prerequisites
 
-```bash
-# using npm
-npm start
+In order to be able to perform a successful payment with our Mobile SDK you must have:
 
-# OR using Yarn
-yarn start
-```
+- A contract with your Payment service provider
+- A deployed server capable to communicate with the payment platform, in order to verify data and create the payment session (please check out java server sample or the integration documentation for more information).
+- Your public key to initialize the SDK. This key can be found in the merchant back-office in Settings -> Shop -> API -> REST API Keys
+- Your REST API Server Name to initialize the SDK. This key can be found in the merchant back-office in Settings -> Shop -> API -> REST API Keys
 
-## Step 2: Start your Application
+## Documentation
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+Please check our documentation to understand how to integrate our SDK in your React Native application -> https://payzen.io/fr-FR/mobp/integration_guide/react_native/
 
-### For Android
+## Getting started
 
-```bash
-# using npm
-npm run android
+### Execute this sample
 
-# OR using Yarn
-yarn android
-```
+1. Clone the repo, `git clone git@github.com:lyra/react-native-sdk-payment-example.git`.
 
-### For iOS
+2. Open the project under your IDE like Visual Studio Code.
 
-```bash
-# using npm
-npm run ios
+3. Edit the following fields in `Config.ts`
 
-# OR using Yarn
-yarn ios
-```
+   - merchantServerUrl: replace by your merchant server Url.
+   - publicKey: replace with your public key that you can find in your back-office.
+   - apiServerName: replace with your REST API server name that you can find in your back-office.
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+4. Run "yarn"
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+5. Run "yarn pods"
 
-## Step 3: Modifying your App
+6. Run "yarn ios" or "yarn android" and that's all! :)
 
-Now that you have successfully run the app, let's modify it.
+## Troubleshooting
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+Check official integration documentation in order to check all possible error codes.
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+## Copyright and license
 
-## Congratulations! :tada:
+    The MIT License
 
-You've successfully run and modified your React Native App. :partying_face:
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
 
-### Now what?
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.

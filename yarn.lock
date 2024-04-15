@@ -1502,6 +1502,11 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@lyracom/react-native-sdk-payment-module@1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@lyracom/react-native-sdk-payment-module/-/react-native-sdk-payment-module-1.0.5.tgz#550cd8a947efdd5fb45cd9ceb7f2778470916720"
+  integrity sha512-1dA2Pqlb50eZSoqL9QrJ3dG+6onosY6NWs2k1fE8q7sNIcDGmZVafOpsDgg3B10mRmDvJWSFO5qB9jcAmrWBvQ==
+
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   version "5.1.1-v1"
   resolved "https://registry.yarnpkg.com/@nicolo-ribaudo/eslint-scope-5-internals/-/eslint-scope-5-internals-5.1.1-v1.tgz#dbf733a965ca47b1973177dc0bb6c889edcfb129"
@@ -5427,6 +5432,11 @@ pkg-dir@^4.2.0:
   integrity sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==
   dependencies:
     find-up "^4.0.0"
+
+pod-install@^0.1.0:
+  version "0.1.39"
+  resolved "https://registry.yarnpkg.com/pod-install/-/pod-install-0.1.39.tgz#853a0585bafbd332c2ca6543854fd4919958cfb3"
+  integrity sha512-0kVvdLYe0CtfJEr+ISvTMxAEB0UF4JMRToPjuu9xAAq1mEqA2Ql5u7uLWX1m45BMM+7NfU4LnBbnfNjmQE9GCw==
 
 possible-typed-array-names@^1.0.0:
   version "1.0.0"

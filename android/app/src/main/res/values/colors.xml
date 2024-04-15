@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- to customize the color of the payment SDK, uncomment the following lines and replace the color values with your desired colors -->
+    <!-- <color name="payment_sdk_PrimaryColor">#FF0000</color> -->
+    <!-- <color name="payment_sdk_SecondaryColor">#00FF00</color> -->
+</resources>
