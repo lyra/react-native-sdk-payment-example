@@ -24,6 +24,8 @@ In order to be able to perform a successful payment with our Mobile SDK you must
 - Your public key to initialize the SDK. This key can be found in the merchant back-office in Settings -> Shop -> API -> REST API Keys
 - Your REST API Server Name to initialize the SDK. This key can be found in the merchant back-office in Settings -> Shop -> API -> REST API Keys
 
+Attention: The sdk and its dependencies must be installed as dynamic  
+
 ## Documentation
 
 Please check our documentation to understand how to integrate our SDK in your React Native application -> https://payzen.io/fr-FR/mobp/integration_guide/react_native/
