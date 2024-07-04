@@ -7,12 +7,13 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "pods": "pod-install --quiet"
   },
   "dependencies": {
     "react": "18.2.0",
     "react-native": "0.73.6",
-    "@lyracom/react-native-sdk-payment-module": "1.0.5"
+    "@lyracom/react-native-sdk-payment-module": "1.0.9"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

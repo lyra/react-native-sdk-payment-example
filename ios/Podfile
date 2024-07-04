@@ -28,6 +28,21 @@ end
 target 'SdkPaymentModuleExample' do
   config = use_native_modules!
 
+  dynamic_frameworks = ['LyraPaymentSDK', 'LyraMotion', 'LyraMaterial', 'SnapKit', 'sentry-cocoa', 'sentry_client_cocoa', 'Sentry', 'Sentry-Sentry']
+   pre_install do |installer|
+    installer.pod_targets.each do |pod|
+      if dynamic_frameworks.include?(pod.name)
+        def pod.dynamic_framework?;
+          true
+        end
+        def pod.build_type;
+          Pod::BuildType.dynamic_framework
+        end
+      end
+    end
+  end
+
+
   use_react_native!(
     :path => config[:reactNativePath],
     # Enables Flipper.
@@ -45,6 +60,23 @@ target 'SdkPaymentModuleExample' do
   end
 
   post_install do |installer|
+
+
+
+  	xcode_base_version = `xcodebuild -version | grep 'Xcode' | awk '{print $2}' | cut -d . -f 1`
+
+      installer.pods_project.targets.each do |target|
+  		target.build_configurations.each do |config|
+  			# For xcode 15+ only
+  			if config.base_configuration_reference && Integer(xcode_base_version) >= 15
+  				xcconfig_path = config.base_configuration_reference.real_path
+  				xcconfig = File.read(xcconfig_path)
+  				xcconfig_mod = xcconfig.gsub(/DT_TOOLCHAIN_DIR/, "TOOLCHAIN_DIR")
+  				File.open(xcconfig_path, "w") { |file| file << xcconfig_mod }
+  			end
+  		end
+  	end
+
     # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
     react_native_post_install(
       installer,
