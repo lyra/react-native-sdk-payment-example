@@ -12,19 +12,15 @@ PODS:
   - LyraMaterial (1.0.6):
     - LyraMotion
   - LyraMotion (4.0.2)
-  - LyraPaymentSDK (2.7.9):
+  - LyraPaymentSDK (2.8.1):
     - LyraMaterial (~> 1.0.6)
     - LyraMotion (~> 4.0.2)
-    - LyraPaymentSDK/AdditionalSDK (= 2.7.9)
-    - Sentry (~> 8.36.0)
-    - sentry_client_cocoa (~> 4.0.2)
+    - LyraPaymentSDK/AdditionalSDK (= 2.8.1)
     - SnapKit (~> 5.7.1)
-  - LyraPaymentSDK/AdditionalSDK (2.7.9):
+  - LyraPaymentSDK/AdditionalSDK (2.8.1):
     - LyraCardsRecognizer
     - LyraMaterial (~> 1.0.6)
     - LyraMotion (~> 4.0.2)
-    - Sentry (~> 8.36.0)
-    - sentry_client_cocoa (~> 4.0.2)
     - SnapKit (~> 5.7.1)
   - RCT-Folly (2024.11.18.00):
     - boost
@@ -65,7 +61,6 @@ PODS:
     - React-RCTText (= 0.78.0)
     - React-RCTVibration (= 0.78.0)
   - React-callinvoker (0.78.0)
-  - React-Codegen (0.1.0)
   - React-Core (0.78.0):
     - glog
     - hermes-engine
@@ -1257,14 +1252,6 @@ PODS:
     - React-jsiexecutor
     - React-RCTFBReactNativeSpec
     - ReactCommon/turbomodule/core
-  - react-native-sdk-payment-module (1.0.15):
-    - LyraPaymentSDK (~> 2.7.9)
-    - RCT-Folly
-    - RCTRequired
-    - RCTTypeSafety
-    - React-Codegen
-    - React-Core
-    - ReactCommon/turbomodule/core
   - React-NativeModulesApple (0.78.0):
     - glog
     - hermes-engine
@@ -1552,11 +1539,28 @@ PODS:
     - React-logger (= 0.78.0)
     - React-perflogger (= 0.78.0)
     - React-utils (= 0.78.0)
-  - Sentry (8.36.0):
-    - Sentry/Core (= 8.36.0)
-  - Sentry/Core (8.36.0)
-  - sentry_client_cocoa (4.0.2):
-    - Sentry (= 8.36.0)
+  - SdkPaymentModule (2.0.0):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - LyraPaymentSDK
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - SnapKit (5.7.1)
   - SocketRocket (0.7.1)
   - Yoga (0.0.0)
@@ -1601,7 +1605,6 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
   - React-microtasksnativemodule (from `../node_modules/react-native/ReactCommon/react/nativemodule/microtasks`)
-  - "react-native-sdk-payment-module (from `../node_modules/@lyracom/react-native-sdk-payment-module`)"
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-performancetimeline (from `../node_modules/react-native/ReactCommon/react/performance/timeline`)
@@ -1630,6 +1633,7 @@ DEPENDENCIES:
   - ReactAppDependencyProvider (from `build/generated/ios`)
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "SdkPaymentModule (from `../node_modules/@lyracom/react-native-sdk-payment-module`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -1638,9 +1642,6 @@ SPEC REPOS:
     - LyraMaterial
     - LyraMotion
     - LyraPaymentSDK
-    - React-Codegen
-    - Sentry
-    - sentry_client_cocoa
     - SnapKit
     - SocketRocket
 
@@ -1720,8 +1721,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   React-microtasksnativemodule:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/microtasks"
-  react-native-sdk-payment-module:
-    :path: "../node_modules/@lyracom/react-native-sdk-payment-module"
   React-NativeModulesApple:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios"
   React-perflogger:
@@ -1778,6 +1777,8 @@ EXTERNAL SOURCES:
     :path: build/generated/ios
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  SdkPaymentModule:
+    :path: "../node_modules/@lyracom/react-native-sdk-payment-module"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -1792,14 +1793,13 @@ SPEC CHECKSUMS:
   LyraCardsRecognizer: df5ce5d154fb8ef843cd4ed66a29bb3b5a93526a
   LyraMaterial: d9cbb012b57547b5ff4576c7246af7e80623d4e6
   LyraMotion: e3f502695b475f938c0755ac7731300beb4e8aa2
-  LyraPaymentSDK: 1441647bf6e77d8f7c2fedc10eea4203cc5e3660
+  LyraPaymentSDK: a3de1d4cb0953cb699b7930ab8e6712e5bf8ba5d
   RCT-Folly: 36fe2295e44b10d831836cc0d1daec5f8abcf809
   RCTDeprecation: b2eecf2d60216df56bc5e6be5f063826d3c1ee35
   RCTRequired: 78522de7dc73b81f3ed7890d145fa341f5bb32ea
   RCTTypeSafety: c135dd2bf50402d87fd12884cbad5d5e64850edd
   React: b229c49ed5898dab46d60f61ed5a0bfa2ee2fadb
   React-callinvoker: 2ac508e92c8bd9cf834cc7d7787d94352e4af58f
-  React-Codegen: 4b8b4817cea7a54b83851d4c1f91f79aa73de30a
   React-Core: 13cdd1558d0b3f6d9d5a22e14d89150280e79f02
   React-CoreModules: b07a6744f48305405e67c845ebf481b6551b712a
   React-cxxreact: 1055a86c66ac35b4e80bd5fb766aed5f494dfff4
@@ -1824,7 +1824,6 @@ SPEC CHECKSUMS:
   React-logger: 795cd5055782db394f187f9db0477d4b25b44291
   React-Mapbuffer: 0502faf46cab8fb89cfc7bf3e6c6109b6ef9b5de
   React-microtasksnativemodule: 663bc64e3a96c5fc91081923ae7481adc1359a78
-  react-native-sdk-payment-module: 80eabac3b0898c033c4326757ac0d31cfd812f7a
   React-NativeModulesApple: 16fbd5b040ff6c492dacc361d49e63cba7a6a7a1
   React-perflogger: ab51b7592532a0ea45bf6eed7e6cae14a368b678
   React-performancetimeline: bc2e48198ec814d578ac8401f65d78a574358203
@@ -1853,12 +1852,11 @@ SPEC CHECKSUMS:
   ReactAppDependencyProvider: f2e81d80afd71a8058589e19d8a134243fa53f17
   ReactCodegen: a63a0ab6ae824aef2e8c744981edd718b16eb9f2
   ReactCommon: 3d39389f8e2a2157d5c999f8fba57bd1c8f226f0
-  Sentry: f8374b5415bc38dfb5645941b3ae31230fbeae57
-  sentry_client_cocoa: 598e5084823a7cdc195bacb9d748215e3f3e9eb4
+  SdkPaymentModule: 344ed96c824fe1d87eac52ab72377973b655a263
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: afd04ff05ebe0121a00c468a8a3c8080221cb14c
 
-PODFILE CHECKSUM: 237bade01405ba6e848ae569c69988aac6ee1332
+PODFILE CHECKSUM: 670baa2567aec1e0e1982f30d55fb4780247c355
 
 COCOAPODS: 1.16.2
