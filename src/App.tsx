@@ -76,6 +76,7 @@ export default function App() {
         cardScanningEnabled: true,
         nfcEnabled: true,
         apiServerName: Config.apiServerName,
+        applePayMerchantId: Config.applePayMerchantId,
       });
 
       // 2. Execute getProcessPaymentContext for get the formToken (required param in SDK process method)
