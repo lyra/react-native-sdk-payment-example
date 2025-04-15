@@ -8,17 +8,6 @@ require Pod::Executable.execute_command('node', ['-p',
 platform :ios, 15.1
 prepare_react_native_project!
 
-# If you are using a `react-native-flipper` your iOS build will fail when `NO_FLIPPER=1` is set.
-# because `react-native-flipper` depends on (FlipperKit,...) that will be excluded
-#
-# To fix this you can also exclude `react-native-flipper` using a `react-native.config.js`
-# ```js
-# module.exports = {
-#   dependencies: {
-#     ...(process.env.NO_FLIPPER ? { 'react-native-flipper': { platforms: { ios: null } } } : {}),
-# ```
-flipper_config = ENV['NO_FLIPPER'] == "1" ? FlipperConfiguration.disabled : FlipperConfiguration.enabled
-
 linkage = ENV['USE_FRAMEWORKS']
 if linkage != nil
   Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
@@ -28,8 +17,16 @@ end
 target 'SdkPaymentModuleExample' do
   config = use_native_modules!
 
-  dynamic_frameworks = ['LyraPaymentSDK', 'LyraMotion', 'LyraMaterial', 'SnapKit', 'sentry-cocoa', 'sentry_client_cocoa', 'Sentry', 'Sentry-Sentry']
-   pre_install do |installer|
+  dynamic_frameworks = ['LyraPaymentSDK', 'LyraMotion', 'LyraMaterial', 'SnapKit']
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    # An absolute path to your application root.
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
+
+  pre_install do |installer|
+    
     installer.pod_targets.each do |pod|
       if dynamic_frameworks.include?(pod.name)
         def pod.dynamic_framework?;
@@ -42,46 +39,13 @@ target 'SdkPaymentModuleExample' do
     end
   end
 
-
-  use_react_native!(
-    :path => config[:reactNativePath],
-    # Enables Flipper.
-    #
-    # Note that if you have use_frameworks! enabled, Flipper will not work and
-    # you should disable the next line.
-    :flipper_configuration => flipper_config,
-    # An absolute path to your application root.
-    :app_path => "#{Pod::Config.instance.installation_root}/.."
-  )
-
-  target 'SdkPaymentModuleExampleTests' do
-    inherit! :complete
-    # Pods for testing
-  end
-
   post_install do |installer|
-
-
-
-  	xcode_base_version = `xcodebuild -version | grep 'Xcode' | awk '{print $2}' | cut -d . -f 1`
-
-      installer.pods_project.targets.each do |target|
-  		target.build_configurations.each do |config|
-  			# For xcode 15+ only
-  			if config.base_configuration_reference && Integer(xcode_base_version) >= 15
-  				xcconfig_path = config.base_configuration_reference.real_path
-  				xcconfig = File.read(xcconfig_path)
-  				xcconfig_mod = xcconfig.gsub(/DT_TOOLCHAIN_DIR/, "TOOLCHAIN_DIR")
-  				File.open(xcconfig_path, "w") { |file| file << xcconfig_mod }
-  			end
-  		end
-  	end
-
     # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
     react_native_post_install(
       installer,
       config[:reactNativePath],
-      :mac_catalyst_enabled => false
+      :mac_catalyst_enabled => false,
+      # :ccache_enabled => true
     )
   end
 end

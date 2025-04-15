@@ -22,4 +22,7 @@ export default {
   // Environment TEST or PRODUCTION, refer to documentation for more information
   // FIXME: change by your targeted environment
   paymentMode: 'TEST',
+
+  // Used only for Apple Pay
+  applePayMerchantId: '<REPLACE_ME>',
 };
