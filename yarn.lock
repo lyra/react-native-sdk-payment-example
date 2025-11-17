@@ -1378,10 +1378,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@lyracom/react-native-sdk-payment-module@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@lyracom/react-native-sdk-payment-module/-/react-native-sdk-payment-module-3.0.0.tgz#7fcd55baa2db0ba08c6893ad4b2f9ef0da9e7624"
-  integrity sha512-cj82YaUZ7/kFM/4iXn4wyidzvscY0qhImwNy3whJ2zD2SqKI3LMHmPiFyxhAQl/+u2H7JH+CiD7EsiU8bDbkxw==
+"@lyracom/react-native-sdk-payment-module@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@lyracom/react-native-sdk-payment-module/-/react-native-sdk-payment-module-3.1.1.tgz#155fabd9e1800030e7a3499dddb635ccadcb0eca"
+  integrity sha512-lfWUXqMl7b+eJyzFCHI+S27k7pwaMOkShWEdoMLCJEZ2EbaO1cdiXWK6Wfl8emiFBLLZn6IHwN7NhG3J1KbGiQ==
 
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   version "5.1.1-v1"

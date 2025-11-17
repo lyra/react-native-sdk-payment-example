@@ -1,14 +1,25 @@
-import {Text, View, StyleSheet, Pressable, Alert} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Pressable,
+  Alert,
+  SafeAreaView,
+} from 'react-native';
 import {
   initialize,
   getFormTokenVersion,
   process,
+  getSdkVersion,
 } from '@lyracom/react-native-sdk-payment-module';
 import Config from './Config';
 import {useCallback} from 'react';
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+  },
+  body: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -22,6 +33,12 @@ const styles = StyleSheet.create({
   buttonLabel: {
     color: 'white',
     fontSize: 18,
+  },
+  sdkVersionLabel: {
+    color: 'grey',
+    fontSize: 12,
+    textAlign: 'center',
+    marginBottom: 8,
   },
 });
 
@@ -104,10 +121,13 @@ export default function App() {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Pressable style={styles.button} onPress={handlePay}>
-        <Text style={styles.buttonLabel}>Pay</Text>
-      </Pressable>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.body}>
+        <Pressable style={styles.button} onPress={handlePay}>
+          <Text style={styles.buttonLabel}>Pay</Text>
+        </Pressable>
+      </View>
+      <Text style={styles.sdkVersionLabel}>SdkVersion : {getSdkVersion()}</Text>
+    </SafeAreaView>
   );
 }
