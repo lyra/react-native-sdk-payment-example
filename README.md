@@ -1,5 +1,10 @@
 # React Native SDK payment example
 
+> [!WARNING]
+> This repository is **deprecated** and no longer maintained.
+> 
+> Please check this repository for React Native example: https://github.com/lyra/react-native-sdk-payment-module/tree/main/apps/example
+
 ## Summary
 
 The aim of this repository is to explain how to integrate our Payment Mobile SDK into a React Native application.
